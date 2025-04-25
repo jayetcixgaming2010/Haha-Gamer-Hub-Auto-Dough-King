@@ -1,3 +1,9 @@
+if getgenv().Team == "Pirates" then
+    game:GetService("ReplicatedStorage").Remotes.CommF:InvokeServer("SetTeam", "Pirates")
+elseif getgenv().Team == "Marines" then
+    game:GetService("ReplicatedStorage").Remotes.CommF:InvokeServer("SetTeam", "Marines")
+end
+wait(4)
 local MatsuneA1 = {};
 
 MatsuneA1["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
@@ -1102,7 +1108,7 @@ function UpdatePlayerChams()
 						name.BackgroundTransparency = 1
 						name.TextStrokeTransparency = 0.5
 						if v.Team == game.Players.LocalPlayer.Team then
-							name.TextColor3 = Color3.new(0,255,0)
+							name.TextColor3 = Color3.new(242, 41, 108)
 						else
 							name.TextColor3 = Color3.new(255,0,0)
 						end
@@ -3705,7 +3711,7 @@ UICorner.Parent = ImageButton
 			            -- Set the color to a single color (e.g., green)
 			            game:GetService('TweenService'):Create(
     			            Line, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),
- 			               {BackgroundColor3 = Color3.fromRGB(0, 255, 0)} -- green color
+ 			               {BackgroundColor3 = Color3.fromRGB(242, 41, 108)} -- green color
 			            ):Play() 
 			            wait(0.5)            
 			        end)
@@ -10375,9 +10381,9 @@ spawn(function()
 		while wait() do
 			for i, v in pairs(game.Workspace:GetChildren()) do
 				if string.find(v.Name, "Fruit") then
-					FindFruit:Set("🍏 Find " .. v.Name);
+					FindFruit:Set("🍎 Find " .. v.Name);
 				else
-					FindFruit:Set("🍏 Not Have Fruits");
+					FindFruit:Set("🍎 Not Have Fruits");
 				end;
 			end;
 		end;
@@ -11639,4 +11645,11 @@ end)
             end
             end
          end)
-     end) 
+     end)
+     
+     game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Haha Gamer Hub",
+        Text = "Loading Done!",
+        Icon = "rbxthumb://type=Asset&id=135920566704171&w=150&h=150",
+        Duration = 10
+    });
